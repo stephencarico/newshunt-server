@@ -10,6 +10,7 @@ ruby '2.5.0'
 gem 'unirest'
 gem 'figaro'
 gem 'pry'
+gem "rest-client", ">= 1.8.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record
