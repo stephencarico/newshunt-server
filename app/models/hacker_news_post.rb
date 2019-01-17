@@ -8,6 +8,12 @@ class HackerNewsPost < ApplicationRecord
       posts.map!{|post| normalize(post)}
   end
 
+  def self.check_api
+      response = Unirest.get('https://api.hnpwa.com/v0/news/1.json')
+      posts = response.body[0..3]
+      JSON.pretty_generate(posts)
+  end
+
   def self.normalize(post)
     {
       id: post['id'],

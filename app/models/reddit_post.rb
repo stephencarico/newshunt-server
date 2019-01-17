@@ -10,6 +10,12 @@ class RedditPost < ApplicationRecord
     end
   end
 
+  def self.check_api
+    response = Unirest.get('https://www.reddit.com/hot.json')
+    posts = response.body['data']['children'][0..3]
+    JSON.pretty_generate(posts)
+  end
+
   def self.normalize(post)
     {
       id: post['id'],

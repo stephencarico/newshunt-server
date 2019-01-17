@@ -8,6 +8,12 @@ class GithubTrendingPost < ApplicationRecord
     posts.map!{|post| normalize(post)}
   end
 
+  def self.check_api
+    response = Unirest.get("https://github-trending-api.now.sh/repositories?since=weekly")
+    posts = response.body[0..3]
+    JSON.pretty_generate(posts)
+  end
+
   def self.normalize(post)
     {
       id: "",
