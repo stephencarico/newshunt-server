@@ -22,6 +22,7 @@ class ProductHuntPost < ApplicationRecord
       comments_url: post['discussion_url'],
       points: post['votes_count'],
       comments: post['comments_count'],
+      image: post['thumbnail']['image_url'],
       author: post['user']['username'],
       source: 'Product Hunt'
     }
