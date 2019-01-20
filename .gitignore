@@ -14,3 +14,7 @@
 !/tmp/.keep
 
 .byebug_history
+
+# Ignore application.yml file
+config/application.yml
+config/secretes.yml
